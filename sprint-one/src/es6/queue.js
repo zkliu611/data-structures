@@ -1,7 +1,25 @@
+var index = 0;
+
 class Queue {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+ 
   constructor() {
+    this.storage = {};
+  }
+
+  enqueue (value) {
+    index++;
+    this.storage[index] = value;
+  }
+
+  dequeue () {
+    var firstKey = Object.keys(this.storage)[0];
+    var val = this.storage[firstKey];
+    delete this.storage[firstKey];
+    return val;
+  }
+
+  size () {
+    return Object.keys(this.storage).length;
   }
 
 }
